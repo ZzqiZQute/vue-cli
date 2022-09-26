@@ -100,7 +100,7 @@ module.exports = class Service {
 
   loadEnv (mode) {
     const logger = debug('vue:env')
-    const basePath = path.resolve(this.context, `.env${mode ? `.${mode}` : ``}`)
+    const basePath = path.resolve(process.env.VUE_CLI_DOTENV_PATH || this.context, `.env${mode ? `.${mode}` : ``}`)
     const localPath = `${basePath}.local`
 
     const load = envPath => {
